@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>LibraryManager</title>
+</head>
+<body>
+
+    <!-- NavBar -->
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="">
+            <img src="{% static '../static/Images/Logo.png' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            LibraryManager
+          </a>
+          <ul class="navbar-nav ">
+            <li class="nav-item">
+              <div class="dropdown">
+                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="{%static '../static/Images/User.png'%}" alt="User" width="40px">
+                  <span>Ola, {{usuario}}</span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+<!-- Registration Form -->
+<form class="row g-3 needs-validation" novalidate method="POST" action="creation" style="margin: 10px;">{% csrf_token %}
+    <div class="col-md-4">
+      <label for="validationCustom01" class="form-label">Title</label>
+      <input type="text" class="form-control" id="validationCustom01" required placeholder="Type the book's title" name="title">
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Presser</label>
+      <input type="text" class="form-control" id="validationCustom02"required placeholder="Type the name of the presser" name="presser">
+    </div>
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Author</label>
+        <input type="text" class="form-control" id="validationCustom02"required placeholder="Type the name of the author" name="author">
+      </div>
+    <div class="col-md-4">
+      <label for="validationCustom01" class="form-label">Pages</label>
+      <input type="number" class="form-control" id="validationCustom01" required placeholder="Type the quantity of pagas" name="pages">
+    </div>
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Price</label>
+        <input type="number" class="form-control senha" id="validationCustom01" required placeholder="Type the price of the book" name="price" step="0.01">
+      </div>
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required name="description"></textarea>
+        <label for="floatingTextarea2">Description</label>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Register</button>
+      </div>
+  </form>
+    <!-- Script do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="{% static '../static/JS/formValidation.js'%}"></script>
+</body>
+</html>
