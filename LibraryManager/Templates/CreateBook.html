@@ -23,7 +23,7 @@
               <div class="dropdown">
                 <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                   <img src="{%static '../static/Images/User.png'%}" alt="User" width="40px">
-                  <span>Ola, {{usuario}}</span>
+                  <span style="color: white;">Ola, {{usuario}}</span>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <li><a class="dropdown-item" href="/logout">Logout</a></li>
@@ -35,29 +35,29 @@
       </nav>
 
 <!-- Registration Form -->
-<form class="row g-3 needs-validation" novalidate method="POST" action="creation" style="margin: 10px;">{% csrf_token %}
+<form class="row g-3 needs-validation"  method="POST" action="creation" style="margin: 10px;">{% csrf_token %}
     <div class="col-md-4">
       <label for="validationCustom01" class="form-label">Title</label>
-      <input type="text" class="form-control" id="validationCustom01" required placeholder="Type the book's title" name="title">
+      <input type="text" class="form-control" id="validationCustom01" required placeholder="Type the book's title" name="title" required>
     </div>
     <div class="col-md-4">
       <label for="validationCustom02" class="form-label">Presser</label>
-      <input type="text" class="form-control" id="validationCustom02"required placeholder="Type the name of the presser" name="presser">
+      <input type="text" class="form-control" id="validationCustom02"required placeholder="Type the name of the presser" name="presser" required>
     </div>
     <div class="col-md-4">
         <label for="validationCustom02" class="form-label">Author</label>
-        <input type="text" class="form-control" id="validationCustom02"required placeholder="Type the name of the author" name="author">
+        <input type="text" class="form-control" id="validationCustom02"required placeholder="Type the name of the author" name="author" required>
       </div>
     <div class="col-md-4">
       <label for="validationCustom01" class="form-label">Pages</label>
-      <input type="number" class="form-control" id="validationCustom01" required placeholder="Type the quantity of pagas" name="pages">
+      <input type="number" class="form-control" id="validationCustom01" required placeholder="Type the quantity of pagas" name="pages" required>
     </div>
     <div class="col-md-4">
         <label for="validationCustom01" class="form-label">Price</label>
-        <input type="number" class="form-control senha" id="validationCustom01" required placeholder="Type the price of the book" name="price" step="0.01">
+        <input type="number" class="form-control senha" id="validationCustom01" required placeholder="Type the price of the book." name="price" step="0.01" required value=0.00>
       </div>
       <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required name="description"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"  name="description" required></textarea>
         <label for="floatingTextarea2">Description</label>
       </div>
       <div class="col-12">

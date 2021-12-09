@@ -1,9 +1,13 @@
 from django import http
+import django
 from django.contrib import auth, messages
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 from .models import Book
 
@@ -29,6 +33,14 @@ def register_submit(request):
         password = request.POST['password']
         user  = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
         user.save()
+
+        try:
+            print("entrou no try")
+            send_mail(subject="Confirmação de cadastro", message="Cadastro realizado com sucesso", from_email="personalibrary071@gmail.com", recipient_list=[email], fail_silently=False)
+            print("Deu certo")
+        except:
+            print('Deu errado')
+
     return redirect(login_page)
 
 # Login Logic

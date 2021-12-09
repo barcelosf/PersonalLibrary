@@ -1,21 +1,13 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-var toastTrigger = document.getElementById('liveToastBtn')
-var toastLiveExample = document.getElementById('liveToast')
-(function () {
-    'use strict'
-  
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-  
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-            form.classList.add('was-validated')
-        }, false)
-      })
-  })()
+let password = document.getElementById('password')
+let confirmPassword = document.getElementById('confirm_password')
+let formulario = document.getElementById('formulario')
+
+let senha = password.value 
+let confirmaSenha = confirmPassword.value
+
+formulario.addEventListener('submit', function(evento){
+    if(senha != confirmaSenha){
+      evento.preventDefault()
+      alert('As senhas não coincidem')
+    }
+})
